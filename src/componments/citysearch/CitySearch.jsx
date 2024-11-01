@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
+import { Search } from '@mui/icons-material';
 
-const CitySearch = ({ onCityChange }) => {
-    const [input, setInput] = useState('');
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      onCityChange(input);
-    };
-  
-    return (
-      <form onSubmit={handleSubmit} className="mb-3">
-        <div className="input-group">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter city"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <button type="submit" className="btn btn-primary">Search</button>
-        </div>
-      </form>
-    );
+const CitySearch = ({ onSearch }) => {
+  const [city, setCity] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(city);
   };
-  
+
+  return (
+    <form className="d-flex mb-3" onSubmit={handleSubmit}>
+      
+      <input
+        type="text"
+        className="form-control me-2 border-1 fw-bold"
+        placeholder="Enter city name"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+      />
+      <button style={{backgroundColor: "#6A9C89"}} 
+      type="submit" className="border-0 rounded-2 fw-bold shadow">
+        <Search />
+        Search
+      </button>
+    </form>
+  );
+};
+
 export default CitySearch;

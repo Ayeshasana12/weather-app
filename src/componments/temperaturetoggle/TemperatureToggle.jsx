@@ -1,12 +1,11 @@
 import React from 'react';
+import { ToggleOn, ToggleOff } from '@mui/icons-material';
 
-const TemperatureToggle = ({ unit, onToggle }) => {
-    return (
-      <div className="mb-3">
-        <button onClick={onToggle} className="btn btn-secondary">
-          Switch to {unit === 'C' ? 'Fahrenheit' : 'Celsius'}
-        </button>
-      </div>
-    );
-  };
+const TemperatureToggle = ({ onToggle }) => (
+  <div className="mb-3 text-center">
+    <button style={{backgroundColor: "#B03052"}} className=" border-0 rounded-pill px-3 fw-semibold py-2 text-white" onClick={onToggle}>
+      Toggle Temperature Unit <ToggleOn className='fs-4 ms-4' />
+    </button>
+  </div>
+);
 export default TemperatureToggle;
